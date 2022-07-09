@@ -17,17 +17,30 @@ function playRound(playerSelection, computerSelection) {
   playerSelection = capitalizeFirstLetter(playerSelection);
 
   if (playerSelection === computerSelection) {
-    return "It's a tie!"
+    console.log("It's a tie!");
+    return [0, 0];
   } else if ((playerSelection === "Rock" && computerSelection === "Scissors")
     || (playerSelection === "Paper" && computerSelection === "Rock")
     || (playerSelection === "Scissors" && computerSelection === "Paper")) {
-    return `You win! ${playerSelection} beats ${computerSelection}`
+    console.log(`You win! ${playerSelection} beats ${computerSelection}`);
+    return [1, 0];
   } else {
-    return `You lose! ${computerSelection} beats ${playerSelection}`
+    console.log(`You lose! ${computerSelection} beats ${playerSelection}`);
+    return [0, 1];
   }
 }
 
-// Test playRound()
-const playerSelection = "rock";
-const computerSelection = computerPlay();
-console.log(playRound(playerSelection, computerSelection));
+function game() {
+  let scorePlayer = 0;
+  let scoreComputer = 0;
+
+  for (let i = 0; i < 5; i++) {
+    let playerSelection = prompt("Choose Rock, Paper or Scissors:");
+    let [pointPlayer, pointComputer] = playRound(playerSelection, computerPlay());
+    scorePlayer += pointPlayer;
+    scoreComputer += pointComputer;
+  }
+  console.log(`Score player: ${scorePlayer}`);
+  console.log(`Score computer: ${scoreComputer}`);
+  console.log(scorePlayer > scoreComputer ? "Player wins!" : "Computer wins!");
+}
