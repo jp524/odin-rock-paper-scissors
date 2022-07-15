@@ -14,8 +14,6 @@ function capitalizeFirstLetter(input) {
 }
 
 function playRound(playerSelection, computerSelection) {
-  playerSelection = capitalizeFirstLetter(playerSelection);
-
   if (playerSelection === computerSelection) {
     console.log("It's a tie!");
     return [0, 0];
@@ -35,10 +33,17 @@ function game() {
   let scoreComputer = 0;
 
   for (let i = 0; i < 5; i++) {
-    let playerSelection = prompt("Choose Rock, Paper or Scissors:");
+    let playerSelection = capitalizeFirstLetter(prompt("Choose Rock, Paper or Scissors:"));
+
+    while (playerSelection !== "Rock" && playerSelection !== "Paper" && playerSelection !== "Scissors") {
+      console.log(`${playerSelection} is not a valid choice. Choose Rock, Paper or Scissors.`)
+      playerSelection = capitalizeFirstLetter(prompt("Choose Rock, Paper or Scissors:"));
+    }
+    
     let [pointPlayer, pointComputer] = playRound(playerSelection, computerPlay());
     scorePlayer += pointPlayer;
     scoreComputer += pointComputer;
+
   }
   console.log(`Score player: ${scorePlayer}`);
   console.log(`Score computer: ${scoreComputer}`);
