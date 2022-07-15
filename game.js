@@ -15,15 +15,15 @@ function capitalizeFirstLetter(input) {
 
 function playRound(playerSelection, computerSelection) {
   if (playerSelection === computerSelection) {
-    console.log("It's a tie!");
+    results.textContent = "It's a tie!";
     return [0, 0];
   } else if ((playerSelection === "Rock" && computerSelection === "Scissors")
     || (playerSelection === "Paper" && computerSelection === "Rock")
     || (playerSelection === "Scissors" && computerSelection === "Paper")) {
-    console.log(`You win! ${playerSelection} beats ${computerSelection}`);
+    results.textContent = `You win! ${playerSelection} beats ${computerSelection}`;
     return [1, 0];
   } else {
-    console.log(`You lose! ${computerSelection} beats ${playerSelection}`);
+    results.textContent = (`You lose! ${computerSelection} beats ${playerSelection}`);
     return [0, 1];
   }
 }
@@ -56,3 +56,8 @@ btn.forEach(btn => btn.addEventListener("click", (e) => {
   playerSelection = e.target.id;
   playRound(playerSelection, computerPlay());
 }));
+
+const container = document.querySelector(".container");
+const results = document.createElement("p");
+
+container.appendChild(results);
