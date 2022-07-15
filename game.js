@@ -29,23 +29,30 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function game() {
-  let scorePlayer = 0;
-  let scoreComputer = 0;
+  // --- Previous code to play 5 rounds ---
+  // let scorePlayer = 0;
+  // let scoreComputer = 0;
+  // for (let i = 0; i < 5; i++) {
+  //   let playerSelection = capitalizeFirstLetter(prompt("Choose Rock, Paper or Scissors:"));
 
-  for (let i = 0; i < 5; i++) {
-    let playerSelection = capitalizeFirstLetter(prompt("Choose Rock, Paper or Scissors:"));
+  //   while (playerSelection !== "Rock" && playerSelection !== "Paper" && playerSelection !== "Scissors") {
+  //     console.log(`${playerSelection} is not a valid choice. Choose Rock, Paper or Scissors.`)
+  //     playerSelection = capitalizeFirstLetter(prompt("Choose Rock, Paper or Scissors:"));
+  //   }
 
-    while (playerSelection !== "Rock" && playerSelection !== "Paper" && playerSelection !== "Scissors") {
-      console.log(`${playerSelection} is not a valid choice. Choose Rock, Paper or Scissors.`)
-      playerSelection = capitalizeFirstLetter(prompt("Choose Rock, Paper or Scissors:"));
-    }
-    
-    let [pointPlayer, pointComputer] = playRound(playerSelection, computerPlay());
-    scorePlayer += pointPlayer;
-    scoreComputer += pointComputer;
-
-  }
-  console.log(`Score player: ${scorePlayer}`);
-  console.log(`Score computer: ${scoreComputer}`);
-  console.log(scorePlayer > scoreComputer ? "Player wins!" : "Computer wins!");
+  //   let [pointPlayer, pointComputer] = playRound(playerSelection, computerPlay());
+  //   scorePlayer += pointPlayer;
+  //   scoreComputer += pointComputer;
+  // }
+  // console.log(`Score player: ${scorePlayer}`);
+  // console.log(`Score computer: ${scoreComputer}`);
+  // console.log(scorePlayer > scoreComputer ? "Player wins!" : "Computer wins!");
 }
+
+let playerSelection = "";
+
+const btn = document.querySelectorAll("button");
+btn.forEach(btn => btn.addEventListener("click", (e) => {
+  playerSelection = e.target.id;
+  playRound(playerSelection, computerPlay());
+}));
