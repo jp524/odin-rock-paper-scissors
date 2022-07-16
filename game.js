@@ -24,6 +24,9 @@ function playRound(playerSelection, computerSelection) {
   }
 }
 
+function disableButton() {
+  btn.forEach(btn => btn.disabled = true);
+}
 
 function onButtonClick(e) {
   if (scorePlayer < 5 && scoreComputer < 5) {
@@ -32,8 +35,10 @@ function onButtonClick(e) {
     scoreComputer += pointComputer;
     score.textContent = `Player ${scorePlayer} - ${scoreComputer} Computer`;
     if (scorePlayer === 5) {
+      disableButton();
       results.textContent = "You win!";
     } else if (scoreComputer === 5) {
+      disableButton();
       results.textContent = "The computer won!";
     }
   }
