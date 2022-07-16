@@ -30,7 +30,7 @@ function disableButton() {
 
 function onButtonClick(e) {
   if (scorePlayer < 5 && scoreComputer < 5) {
-    let [pointPlayer, pointComputer] = playRound(playerSelection = e.target.id, computerPlay());
+    let [pointPlayer, pointComputer] = playRound(playerSelection = e.target.alt, computerPlay());
     scorePlayer += pointPlayer;
     scoreComputer += pointComputer;
     score.textContent = `Player ${scorePlayer} - ${scoreComputer} Computer`;
@@ -51,7 +51,7 @@ let scoreComputer = 0;
 const btn = document.querySelectorAll("button");
 btn.forEach(btn => btn.addEventListener("click", onButtonClick));
 
-const container = document.querySelector(".container");
+const container = document.querySelector(".score-container");
 const results = document.createElement("p");
 const score = document.createElement("p");
 container.appendChild(results);

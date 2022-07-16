@@ -1,18 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Odin Rock Paper Scissors</title>
+  <link rel="stylesheet" href="./style.css">
 </head>
-<body>
-  <h2>Select Rock, Paper or Scissors</h2>
-  <button id="Rock">Rock</button>
-  <button id="Paper">Paper</button>
-  <button id="Scissors">Scissors</button>
 
-  <div class="container">
+<body>
+  <div class="header">
+    <div class="header-logo">
+      <img src="./icons/rock-paper-scissors.png" alt="rock paper scissors">
+    </div>
+    <h1>A Rock, Paper or Scissors Game!</h1>
+  </div>
+
+  <div class="game">
+    <h4>Click one of the buttons to play against the computer.</h4>
+    <h4>The game is finished once you or the computer has five points.</h4>
+    <div class="options">
+      <button>
+        <img src="./icons/stone.png" alt="Rock">
+      </button>
+      <button>
+        <img src="./icons/papers.png" alt="Paper">
+      </button>
+      <button>
+        <img src="./icons/scissors.png" alt="Scissors">
+      </button>
+    </div>
+    <div class="score-container">
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>Copyright © JP 2022</p>
+    <div class="credits">
+      <p>Icons by Flaticon designers. More details </p>
+      <a href="https://github.com/jp524/odin-rock-paper-scissors">here</a>
+    </div>
   </div>
 
   <script src="./game.js"></script>
 </body>
+
 </html>

@@ -1,0 +1,36 @@
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  height: 100vh;
+  margin: 0 40px;
+}
+
+.header {
+  height: 120px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-logo>img {
+  width: 70px;
+}
+
+button>img {
+  width: 100px;
+}
+
+.footer {
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.credits {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
